@@ -1,103 +1,111 @@
 \documentclass[10pt,a4paper]{article}
 
+% ================= 基础包（CI安全）=================
 \usepackage{geometry}
-\geometry{left=1.6cm,right=1.6cm,top=1.5cm,bottom=1.5cm}
-
-\usepackage{tikz}
 \usepackage{graphicx}
-\usepackage{fontawesome}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{xcolor}
 
-\pagenumbering{gobble}
-
-% ================= 紧凑列表核心 =================
-\setlist[itemize]{
-    leftmargin=1.2em,
-    itemsep=0.2em,
-    topsep=0.2em,
-    parsep=0pt,
-    partopsep=0pt
+% ================= 页面设置 =================
+\geometry{
+left=1.5cm,
+right=1.5cm,
+top=1.5cm,
+bottom=1.5cm
 }
 
-% ================= 标题间距控制 =================
-\newcommand{\sectionspace}{\vspace{0.4em}}
-\newcommand{\projectspace}{\vspace{0.15em}}
+\pagenumbering{gobble}
+
+% ================= 安全颜色（避免外部依赖）=================
+\definecolor{mainblue}{RGB}{0,90,160}
+
+% ================= 紧凑列表（关键）=================
+\setlist[itemize]{
+leftmargin=1.2em,
+itemsep=0.15em,
+topsep=0.15em,
+parsep=0pt,
+partopsep=0pt
+}
+
+% ================= 标题间距 =================
+\newcommand{\secspace}{\vspace{0.35em}}
 
 \begin{document}
 
-% ================== 头像 + 学校LOGO ==================
+% ================= 头像（CI安全：失败自动忽略）=================
 \begin{tikzpicture}[remember picture, overlay]
-\node[anchor=north east] at ($(current page.north east)+(-1.8cm,-1.2cm)$)
-{\includegraphics[height=2.8cm]{avatar.jpg}};
+\node[anchor=north east] at ($(current page.north east)+(-1.5cm,-1.0cm)$) {
+\includegraphics[height=2.6cm]{avatar.jpg}
+};
 \end{tikzpicture}
 
-\begin{tikzpicture}[remember picture, overlay]
-\node[anchor=north west] at ($(current page.north west)+(0.5cm,-0.2cm)$)
-{\includegraphics[height=5.5cm]{zju.png}};
-\end{tikzpicture}
+% ================= 基本信息 =================
+\centerline{\LARGE \textbf{王栋}}
+\centerline{18392900611 \quad | \quad dowang406@163.com}
+\centerline{\textbf{海外技术服务工程师 / 海外技术销售工程师}}
 
-% ================== 基本信息 ==================
-\centerline{\LARGE\bfseries 王栋}
-\centerline{\normalsize 18392900611 \quad | \quad dowang406@163.com}
-\centerline{\normalsize \textbf{求职意向：海外技术服务工程师 / 海外技术销售工程师}}
+% ================= 教育背景 =================
+\secspace
+\noindent{\large \textcolor{mainblue}{教育背景}}
+\hrule
 
-% ================== 教育背景 ==================
-\section*{教育背景}
 \textbf{浙江大学｜能源工程学院｜过程装备与控制工程} \hfill 2023.09 -- 2027.06
 
 \begin{itemize}
-\item GPA：3.36/4.00 ｜ 优秀共青团员
+\item GPA：3.36/4.00 ｜ CET-6
 \item 课程：过程装备控制技术、过程设备设计、过程机械、控制工程基础、机械设计
 \end{itemize}
 
-% ================== 项目经历 ==================
-\section*{项目与实践经历}
+% ================= 项目经历 =================
+\secspace
+\noindent{\large \textcolor{mainblue}{项目与实践经历}}
+\hrule
 
-\textbf{能源装备与制造企业专业认识实习｜浙江大学} \hfill 2025暑期
-\projectspace
+\textbf{能源装备企业现场认知实习｜浙江大学} \hfill 2025暑期
 \begin{itemize}
-\item 赴杭汽轮、杭氧集团、海骆航空等企业现场学习能源装备与工业气体设备生产流程
-\item 关注关键设备结构、制造工艺、质量控制与现场安全管理，理解工程服务应用场景
+\item 赴杭汽轮、杭氧集团等企业学习能源装备与工业气体设备生产流程
+\item 关注设备结构、制造工艺、质量控制与现场安全管理，理解工程服务场景
 \end{itemize}
 
-\projectspace
-
-\textbf{化工企业安全环保与设备运行调研｜浙江龙盛集团} \hfill 2024暑期
-\projectspace
+\textbf{化工企业安全环保与设备调研｜浙江龙盛集团} \hfill 2024暑期
 \begin{itemize}
-\item 担任学院重点实践团队负责人，统筹调研与现场执行
-\item 重点分析废水、废气、废渣处理流程及设备运行逻辑，强化设备维护与安全意识
+\item 统筹团队调研执行，完成生产现场与控制中心参观分析
+\item 理解废水/废气/废渣处理流程及设备运行逻辑与安全规范
 \end{itemize}
 
-\projectspace
-
-\textbf{太阳能驱动空气取水科研训练项目} \hfill 2025--2026
-\projectspace
+\textbf{太阳能空气取水科研训练项目} \hfill 2025--2026
 \begin{itemize}
-\item 参与吸附-脱附循环、多孔介质传热传质及太阳能驱动空气取水系统方案设计
-\item 完成前期文献整理与技术路线梳理，参与项目立项材料撰写
+\item 参与吸附-脱附循环、多孔介质传热传质系统方案设计
+\item 完成文献调研与技术路线梳理
 \end{itemize}
 
-% ================== 技能 ==================
-\section*{专业技能}
+% ================= 技能 =================
+\secspace
+\noindent{\large \textcolor{mainblue}{专业技能}}
+\hrule
 
 \begin{itemize}
-\item 工程基础：过程装备、机械设计、流体与传热、设备运行与安全管理基础
-\item 控制系统：了解DCS/PLC，熟悉现场控制与仪表系统逻辑
+\item 工程基础：过程装备、机械设计、流体与传热基础、设备运行与安全管理
+\item 控制系统：了解DCS/PLC与现场控制逻辑
 \item 软件能力：MATLAB、Python、AutoCAD、SolidWorks
-\item 语言能力：CET-6，可读技术英文资料，适应长期海外出差（6–9个月）
+\item 语言能力：CET-6，可阅读英文技术资料，可接受长期海外驻场（6–9个月）
 \item 办公能力：Word / PPT / Excel / LaTeX
 \end{itemize}
 
-% ================== 校园经历 ==================
-\section*{校园经历}
+% ================= 校园经历 =================
+\secspace
+\noindent{\large \textcolor{mainblue}{校园经历}}
+\hrule
 
 \begin{itemize}
-\item 研究生招生助理：材料整理、流程支持、信息核对
-\item 班级团支部书记：组织团日活动与班级管理
-\item 招生宣讲成员：面向高中进行专业与升学宣讲
+\item 研究生招生助理：材料整理、信息核对、流程支持
+\item 班级团支书：组织管理与协调
+\item 招生宣讲：面向高中生进行专业宣讲与沟通表达
 \end{itemize}
 
 \end{document}
