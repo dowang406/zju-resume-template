@@ -88,63 +88,94 @@
 \begin{document}
 \pagenumbering{gobble}
 
-%%%% 利用tikz来定位照片
+%%%% 利用tikz来定位照片：请将证件照命名为 avatar.jpg，并放在.tex文件同一目录
 \begin{tikzpicture}[remember picture, overlay] 
     \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{avatar.jpg}};
-  \end{tikzpicture}%
-  %%%% 利用tikz来定位学校Logo，这里只在第一页显示
-  \begin{tikzpicture}[remember picture, overlay] 
+\end{tikzpicture}%
+
+%%%% 利用tikz来定位学校Logo：请将浙江大学Logo命名为 zju.png，并放在.tex文件同一目录
+\begin{tikzpicture}[remember picture, overlay] 
     \node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=6cm]{zju.png}};
-  \end{tikzpicture}%
-\centerline{\LARGE\bfseries{胡豆}} 
+\end{tikzpicture}%
 
-\centerline{\normalsize{\faPhone\ 111-1111-1111 \quad \faEnvelopeO\ \href{mailto:3230100000@zju.edu.cn}{3230100000@zju.edu.cn}}} 
+\centerline{\LARGE\bfseries{王栋}} 
 
-\centerline{\normalsize{\faGithubSquare\ \href{https://github.com/maksymilan}{https://github.com/maksymilan} \quad \faRssSquare\ \href{https://maksymilan.github.io/}{https://maksymilan.github.io}}} 
-    
-\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}    
-\textbf{浙江大学} \hfill 2023.9 -- 至今\\[0.5em] % 标题和正文间加一点距离
-CC98烂坑挖掘工程与技术\quad 大二 
+\centerline{\normalsize{\faPhone\ 18392900611 \quad \faEnvelopeO\ \href{mailto:dowang406@163.com}{dowang406@163.com}}}
+
+\centerline{\normalsize{\textbf{求职意向：海外技术服务工程师 / 海外售后工程师 / 能源装备技术服务工程师}}}
+
+\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}
+
+\textbf{浙江大学｜能源工程学院｜过程装备与控制工程｜本科} \hfill 2023.09 -- 预计2027.06
+
 \begin{itemize}[nosep]
-    \item 相关课程：《烂坑挖掘及基础》、《高级挖坑技巧》、《烂坑数理统计》
+    \item GPA：3.36/4.00
+    \item 相关课程：\textbf{控制工程基础、数值计算方法、塑料加工技术及装备、现代管理基础}
+    \item 荣誉奖项：\textbf{浙江大学能源工程学院优秀共青团员}
 \end{itemize}
 
-\section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 项目经历}
+\section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 专业认识实习}
 
-% --- 第一个项目 ---
-% 将标题行末尾的 \\ 替换为 \titlebreak 命令
-\textbf{98烂坑风控与可视化作战平台} \hfill 2024.08 -- 至今 \titlebreak
-项目描述：为维护cc98社区的讨论纯度、净化“心灵之约”版块风气，本项目旨在对“烂坑”进行科学、严谨的量化分析，并引入\textbf{大语言模型(LLM)}对烂坑帖进行\textbf{自动化情感极性与“离谱指数”标注}。
-% 在 itemize 的选项中，使用 topsep=\intraProjectListTopSep 来控制上边距
+\textbf{浙江大学能源工程学院｜杭汽轮、杭氧集团、海骆航空等企业} \hfill 2025暑期 \titlebreak
+
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{数据与后端}：运用 \textbf{Go} 语言及 \textbf{GORM} 框架，实现对全站“烂坑”帖的7x24小时全天候\textbf{抓取}与\textbf{入库}(MySQL)。
-    \item \textbf{可视化前端}：采用原生 \textbf{HTML/CSS/JS} 构建了“烂坑”实时监控\textbf{作战大屏}。实现了坑主成分分析、挖坑热力图、年度烂坑王榜单等\textbf{可视化图表}，并通过 \textbf{AJAX} 异步刷新，确保数据洞察的实时性。
-    \item \textbf{核心产出}：全面掌握了从\textbf{数据采集、清洗、LLM标注到可视化分析}的“反烂坑”全链路技术。
+    \item 参与学院组织的专业认识实习，赴能源装备、工业气体装备与航空制造相关企业参观学习，了解装备制造企业的\textbf{技术体系、生产组织方式与工程应用场景}。
+    \item 参观企业生产线、技术展示与现场管理环节，重点关注\textbf{关键设备结构、制造流程、质量控制、生产安全与工程服务场景}，增强对过程装备与能源动力行业实际运行方式的认识。
+    \item 结合过程装备与控制工程专业背景，理解课堂知识在\textbf{透平机械、气体分离、装备制造、航空动力与工业控制}等场景中的应用，提升工程现场观察、技术问题理解和职业方向认知能力。
 \end{itemize}
 
-% 使用 \projectsep 命令来分隔两个项目
-\projectsep
+\section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 实践经历}
 
-% --- 第二个项目 ---
-\textbf{AIGC驱动的超进化自动挖坑机 (Agent)} \hfill 2025.02 -- 至今 \titlebreak
-项目描述：为探索心灵版规的边界，以及测试版主锁沉反应速度的极限，本项目基于\textbf{多智能体协作(MCP)与LLM}技术，开发了一款能\textbf{自主“挖坑”与“互坑”}的AI Agent。
+\textbf{浙江龙盛集团股份有限公司企业实地调研} \hfill 2024暑期 \titlebreak
+\textbf{学院重点实践团队负责人｜浙江省绍兴市上虞区杭州湾上虞经济技术开发区}
+
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{并发与调度}：后端采用 \textbf{Go} 语言，充分利用 \textbf{Goroutine} 和 \textbf{Channel} 的高并发模型，模拟\textbf{用户并发在线}，执行定时挖坑，确保挖坑行动的\textbf{隐蔽性}与\textbf{高效性}。
-    \item \textbf{实时监控与响应}：运用 \textbf{WebSocket} 协议实现了对目标帖子的\textbf{实时监听与交互}。确保在烂坑被识破的第一时间，Agent能光速完成\textbf{“lktp”}或\textbf{反向钓鱼}操作，展现出极高的AI博弈能力。
-    \item \textbf{可视化GUI}：前端使用 \textbf{React} 框架构建了\textbf{后台管理的可视化面板 (Admin Panel)}。可一键下达挖坑指令、动态调整Agent的\textbf{指令}、并实时监控数据。
+    \item 作为\textbf{学院重点实践团队负责人}，参与调研主题确定、行程安排、任务分工与材料整理，带队完成化工企业生产现场及园区控制中心实地调研。
+    \item 进入化工企业生产一线，参观\textbf{废水、废气、废渣处理流程}，了解环保处理设备运行方式、污染物处理工艺及现场安全管理要求，增强对化工装备实际应用场景的认知。
+    \item 跟随企业负责人学习“三废”处理相关技术与管理措施，重点关注环保设备在化工生产中的\textbf{运行逻辑、安全边界与维护要求}，提升对设备运行、现场巡检和工程安全的理解。
+    \item 整理企业讲解、现场观察和团队记录，形成实践总结材料，提升\textbf{工程现场观察、技术信息提炼、团队协作与沟通协调能力}。
 \end{itemize}
 
-\section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术栈}
+\section{\makebox[\widthof{\faList}][c]{\color{CVBlue}\faList}\ 科研项目}
+
+\textbf{太阳能驱动超吸湿材料用于空气取水的性能优化研究} \hfill 2025 -- 2026 \titlebreak
+\textbf{项目成员｜浙江大学本科生科研训练项目}
+
+\begin{itemize}[nosep, topsep=\intraProjectListTopSep]
+    \item 深度参与项目前期立项调研，围绕\textbf{太阳能驱动空气取水、超吸湿材料、吸附--脱附循环、光热材料及多孔介质传热传质}等方向查阅文献与应用案例，协助梳理项目背景、研究意义与技术可行性。
+    \item 参与研究方案设计，协助明确\textbf{材料开发、多孔介质结构优化、空气取水装置设计与太阳能板热管理结合}等研究内容，推动形成项目技术路线、阶段计划和任务分工。
+    \item 参与立项申报材料撰写与实验室前期建设，协助整理项目主要内容、研究条件、创新点及实验设备条件，提升\textbf{能源装备类工程问题拆解、资料整理和技术表达能力}。
+\end{itemize}
+
+\section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 校园与综合经历}
+
+\textbf{浙江大学能源工程学院研究生科勤工助学｜学生助理} \hfill 2025.09 -- 至今
 \begin{itemize}[nosep]
-    \item \textbf{编程语言：} \textbf{Go}, Python, C++
-    \item \textbf{开发工具：} SSH, Git, Vim, MakeFile,LaTex
-    \item \textbf{操作系统：} Linux
+    \item 参与学院研究生招生相关事务，承担\textbf{材料整理、信息核对、流程支持与日常沟通}等工作，注重信息准确性、流程规范性和工作保密性，提升责任意识、执行力和服务意识。
 \end{itemize}
-\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faList}\ 获奖情况}
-\begin{itemize}
-    \item CC98年度用户 \hfill 2023.12
-    
+
+\textbf{班级团支部书记｜浙江大学} \hfill 2023.09 -- 2024.06
+\begin{itemize}[nosep]
+    \item 负责团支部日常事务、主题团日活动组织、通知传达和班级沟通协调，提升\textbf{组织协调、公共表达和团队服务能力}；获评\textbf{浙江大学能源工程学院优秀共青团员}。
 \end{itemize}
+
+\textbf{浙江大学返校招生宣讲｜宣讲成员} \hfill 每年寒假
+\begin{itemize}[nosep]
+    \item 面向高中学弟学妹分享专业选择、大学生活、备考经验和志愿填报建议；参与宣讲后，母校后续升入浙江大学人数由本人年级的\textbf{2人增加至2024级的5人}。
+\end{itemize}
+
+\section{\makebox[\widthof{\faInfo}][c]{\color{CVBlue}\faInfo}\ 技能与证书}
+
+\begin{itemize}[nosep]
+    \item \textbf{英语能力：}CET-6，具备英文技术资料阅读、基础英文邮件沟通和海外工作场景适应能力。
+    \item \textbf{工程与编程：}\textbf{掌握 MATLAB、Python}；熟悉 AutoCAD、SolidWorks，具备工程图纸阅读、基础制图和三维结构认知能力。
+    \item \textbf{办公与文档：}\textbf{掌握 Word、PowerPoint、Excel、LaTeX}，能够完成技术汇报、调研报告、数据整理和规范化文档排版。
+    \item \textbf{现场与安全：}了解化工现场安全规范、“三废”处理流程和设备运行管理要求，具备\textbf{工程现场观察、问题记录和服务总结意识}。
+    \item \textbf{AI辅助：}\textbf{善于使用 AI 工具}辅助文献检索、英文资料理解、技术文档整理、代码调试和跨语言沟通。
+    \item \textbf{海外意愿：}\textbf{适应长期海外出差或驻外工作}，愿意在海外工程现场、客户服务和设备运维场景中长期积累。
+\end{itemize}
+
+\end{document}
     
 \section{\makebox[\widthof{\faInfo}][c]{\color{CVBlue}\faInfo}\ 其他}
 \begin{itemize}[parsep=0.5ex]
