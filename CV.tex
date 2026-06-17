@@ -1,157 +1,103 @@
-\documentclass[11pt]{article}
+\documentclass[10pt,a4paper]{article}
 
+\usepackage{geometry}
+\geometry{left=1.6cm,right=1.6cm,top=1.5cm,bottom=1.5cm}
 
-\setlength{\parindent}{0pt}
-\usepackage{xltxtra}
-\usepackage{hyperref}
-\hypersetup{hidelinks}
-\usepackage{url}
-\urlstyle{tt}
-\usepackage{xcolor}
-\definecolor{CVBlue}{RGB}{23,110,191}
-\usepackage{calc}
-\usepackage{graphicx}
 \usepackage{tikz}
-\usetikzlibrary{calc}
-\usepackage{fontspec}
-\usepackage{xeCJK}
+\usepackage{graphicx}
+\usepackage{fontawesome}
 \usepackage{enumitem}
-\CJKsetecglue{} %% 取消中文与数字之间的间隙
+\usepackage{hyperref}
+\usepackage{xcolor}
 
-
-%% 主文档字体设置
-\setmainfont[
-    Path = fonts/Main/,
-    Extension = .otf,
-    BoldFont = texgyretermes-bold.otf, % 加粗字体
-]{texgyretermes-regular.otf} % 正文字体
-
-% 中文字体设置
-\setCJKmainfont[
-    Path = fonts/hansans/,
-    Extension = .ttf,
-    BoldFont = NotoSansSC-Bold.ttf, % 加粗字体
-]{NotoSansSC-Regular.otf} % 正文字体
-
-
-\usepackage{relsize}
-\usepackage{xspace}
-
-% 使用 fontawesome（部分图标）
-\usepackage{fontawesome} 
-
-% A4纸，上下左右边距
-\usepackage[
-    a4paper,
-    left=1.2cm,
-    right=1.2cm,
-    top=1.5cm,
-    bottom=1cm,
-    nohead
-]{geometry}
-
-\renewcommand{\baselinestretch}{1.5} % 行间距设为1.5
-
-\usepackage{titlesec}
-\usepackage{enumitem}
-\setlist{noitemsep} % 取消列表项间的额外间距
-%\setlist{nosep} % 取消所有垂直间距
-\setlist[itemize]{topsep=0.25em, leftmargin=*}
-\setlist[enumerate]{topsep=0.25em, leftmargin=*}
-
-% --- 用于控制【不同项目之间】的垂直距离 ---
-\newlength{\interProjectSpacing}
-\setlength{\interProjectSpacing}{0.9em} % <--- 在此调整项目之间的距离
-\newcommand{\projectsep}{\vspace{\interProjectSpacing}}
-
-% --- 用于控制【项目标题】与下方【项目描述】的距离 ---
-\newlength{\intraProjectTitleSep}
-\setlength{\intraProjectTitleSep}{0.4em} % <--- 在此调整标题和描述的距离
-\newcommand{\titlebreak}{\\[\intraProjectTitleSep]}
-
-% --- 用于控制【项目描述】与下方【要点列表】的距离 ---
-\newlength{\intraProjectListTopSep}
-\setlength{\intraProjectListTopSep}{0.2em} % <--- 在此调整描述和列表的距离
-
-% =======================================================================
-
-
-\titleformat{\section}         % 定制 \section 命令 
-{\large\bfseries\raggedright} % 将 section 标题设置为大号、粗体且左对齐
-{}{0em}                      % 可用于为所有 section 添加前缀（如“章节...”）
-{}                           % 可用于在标题前插入代码
-[{\color{CVBlue}\titlerule}]  % 在标题后插入一条横线
-\titlespacing*{\section}{0cm}{*1.6}{*1.2}
-
-
-
-\begin{document}
 \pagenumbering{gobble}
 
-% ====== 页面浮动元素 ======
+% ================= 紧凑列表核心 =================
+\setlist[itemize]{
+    leftmargin=1.2em,
+    itemsep=0.2em,
+    topsep=0.2em,
+    parsep=0pt,
+    partopsep=0pt
+}
+
+% ================= 标题间距控制 =================
+\newcommand{\sectionspace}{\vspace{0.4em}}
+\newcommand{\projectspace}{\vspace{0.15em}}
+
+\begin{document}
+
+% ================== 头像 + 学校LOGO ==================
 \begin{tikzpicture}[remember picture, overlay]
-\node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{avatar.jpg}};
-\end{tikzpicture}%
+\node[anchor=north east] at ($(current page.north east)+(-1.8cm,-1.2cm)$)
+{\includegraphics[height=2.8cm]{avatar.jpg}};
+\end{tikzpicture}
+
 \begin{tikzpicture}[remember picture, overlay]
-\node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=6cm]{zju.png}};
-\end{tikzpicture}%
+\node[anchor=north west] at ($(current page.north west)+(0.5cm,-0.2cm)$)
+{\includegraphics[height=5.5cm]{zju.png}};
+\end{tikzpicture}
 
-\centerline{\LARGE\bfseries{王栋}}
-\centerline{\normalsize{\faPhone\ 18392900611 \quad \faEnvelopeO\ \href{mailto:dowang406@163.com}{dowang406@163.com}}}
-\centerline{\normalsize{\textbf{求职意向：海外技术服务工程师 / 海外技术销售工程师}}}
-\vspace{-0.25em}
+% ================== 基本信息 ==================
+\centerline{\LARGE\bfseries 王栋}
+\centerline{\normalsize 18392900611 \quad | \quad dowang406@163.com}
+\centerline{\normalsize \textbf{求职意向：海外技术服务工程师 / 海外技术销售工程师}}
 
-% ====== 紧凑排版参数：用于一页版 ======
-\newcommand{\tightsectionspace}{\vspace{-0.45em}}
-\newcommand{\tightprojectspace}{\vspace{0.15em}}
-\newcommand{\tightlist}{\begin{itemize}[leftmargin=1.35em,itemsep=0.08em,topsep=0.12em,parsep=0pt,partopsep=0pt]}
-\newcommand{\endtightlist}{\end{itemize}}
+% ================== 教育背景 ==================
+\section*{教育背景}
+\textbf{浙江大学｜能源工程学院｜过程装备与控制工程} \hfill 2023.09 -- 2027.06
 
-\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}
-\tightsectionspace
-\textbf{浙江大学｜能源工程学院｜过程装备与控制工程｜本科} \hfill 2023.09 -- 预计2027.06
-\tightlist
-\item GPA：3.36/4.00；荣誉：\textbf{浙江大学能源工程学院优秀共青团员}
-\item 相关课程：\textbf{过程装备控制技术、过程设备设计、过程机械、控制工程基础、机械设计}
-\endtightlist
+\begin{itemize}
+\item GPA：3.36/4.00 ｜ 优秀共青团员
+\item 课程：过程装备控制技术、过程设备设计、过程机械、控制工程基础、机械设计
+\end{itemize}
 
-\section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 项目与实践经历}
-\tightsectionspace
-\textbf{能源装备与制造企业专业认识实习｜浙江大学能源工程学院} \hfill 2025暑期
-\tightlist
-\item 赴\textbf{杭汽轮、杭氧集团、海骆航空}等企业现场学习，了解能源装备、工业气体装备及航空制造企业的生产组织、设备制造与工程应用场景。
-\item 重点关注\textbf{关键设备结构、制造流程、质量控制、生产安全与工程服务场景}；结合过程装备与控制知识，理解透平机械、气体分离装备及现场控制运行逻辑。
-\endtightlist
-\tightprojectspace
+% ================== 项目经历 ==================
+\section*{项目与实践经历}
+
+\textbf{能源装备与制造企业专业认识实习｜浙江大学} \hfill 2025暑期
+\projectspace
+\begin{itemize}
+\item 赴杭汽轮、杭氧集团、海骆航空等企业现场学习能源装备与工业气体设备生产流程
+\item 关注关键设备结构、制造工艺、质量控制与现场安全管理，理解工程服务应用场景
+\end{itemize}
+
+\projectspace
 
 \textbf{化工企业安全环保与设备运行调研｜浙江龙盛集团} \hfill 2024暑期
-\tightlist
-\item 担任\textbf{学院重点实践团队负责人}，统筹调研主题、行程安排、任务分工与材料整理，带队完成生产现场及园区控制中心调研。
-\item 围绕\textbf{废水、废气、废渣处理流程}，梳理环保设备运行方式、现场巡检重点、安全边界与维护要求，强化设备现场意识和工程安全意识。
-\endtightlist
-\tightprojectspace
+\projectspace
+\begin{itemize}
+\item 担任学院重点实践团队负责人，统筹调研与现场执行
+\item 重点分析废水、废气、废渣处理流程及设备运行逻辑，强化设备维护与安全意识
+\end{itemize}
 
-\textbf{太阳能驱动超吸湿材料用于空气取水的性能优化研究｜本科生科研训练} \hfill 2025 -- 2026
-\tightlist
-\item 参与项目立项与前期方案论证，围绕\textbf{太阳能驱动空气取水、吸附--脱附循环、多孔介质传热传质}查阅资料，协助梳理技术路线、阶段计划和任务分工。
-\endtightlist
+\projectspace
 
-\section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术与工具能力}
-\tightsectionspace
-\tightlist
-\item \textbf{工程基础：}具备过程装备、过程机械、设备设计与装备控制基础；理解设备结构、流体与传热传质、现场运行和安全管理的基本逻辑。
-\item \textbf{控制与软件：}了解\textbf{DCS/PLC}、集中控制、远程监控及仪表控制基础；掌握\textbf{MATLAB、Python}，熟悉 AutoCAD、SolidWorks，能进行工程计算、数据处理、图纸阅读和基础建模。
-\item \textbf{语言与海外适应：}\textbf{CET-6}，具备英文技术资料阅读和基础邮件沟通能力；可接受\textbf{长期海外出差/驻场}，适应全年累计6--9个月出差、单次2--3个月现场工作节奏。
-\item \textbf{文档与协作：}熟练使用 Word、PowerPoint、Excel、LaTeX，善于借助 AI 工具提升英文资料理解、技术文档整理和代码调试效率。
-\endtightlist
+\textbf{太阳能驱动空气取水科研训练项目} \hfill 2025--2026
+\projectspace
+\begin{itemize}
+\item 参与吸附-脱附循环、多孔介质传热传质及太阳能驱动空气取水系统方案设计
+\item 完成前期文献整理与技术路线梳理，参与项目立项材料撰写
+\end{itemize}
 
-\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faList}\ 校园与沟通经历}
-\tightsectionspace
-\tightlist
-\item \textbf{浙江大学能源工程学院研究生科勤工助学｜学生助理} \hfill 2025.09 -- 至今\\
-参与招生相关事务，承担材料整理、信息核对、流程支持与日常沟通，注重准确性、规范性和保密性。
-\item \textbf{班级团支部书记 / 返校招生宣讲成员｜浙江大学} \hfill 2023 -- 至今\\
-组织班级事务与主题活动，多次面向高中学生开展宣讲，锻炼公开表达、跨群体沟通和现场组织协调能力。
-\endtightlist
+% ================== 技能 ==================
+\section*{专业技能}
+
+\begin{itemize}
+\item 工程基础：过程装备、机械设计、流体与传热、设备运行与安全管理基础
+\item 控制系统：了解DCS/PLC，熟悉现场控制与仪表系统逻辑
+\item 软件能力：MATLAB、Python、AutoCAD、SolidWorks
+\item 语言能力：CET-6，可读技术英文资料，适应长期海外出差（6–9个月）
+\item 办公能力：Word / PPT / Excel / LaTeX
+\end{itemize}
+
+% ================== 校园经历 ==================
+\section*{校园经历}
+
+\begin{itemize}
+\item 研究生招生助理：材料整理、流程支持、信息核对
+\item 班级团支部书记：组织团日活动与班级管理
+\item 招生宣讲成员：面向高中进行专业与升学宣讲
+\end{itemize}
 
 \end{document}
